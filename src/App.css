@@ -1,0 +1,63 @@
+body{
+  background-image: url("images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+h1{
+  text-align: center;
+  font-size: 50px;
+}
+h3{
+  text-align: center;
+  font-size: 30px;
+  color:#ffffff;
+
+}
+
+.square {
+  border: 3px solid black;
+  height: 100px;
+  width: 100px;
+  font-size: 85px;
+  text-align: center;
+  background-color:gray;
+}
+.square:hover {
+	background:linear-gradient(to bottom, #634b30 5%, #a69c92 100%);
+	background-color:#634b30;
+}
+
+.TicTacBoard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 320px;
+  margin: 0 auto;
+}
+
+
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #a6827e;
+	background:linear-gradient(to bottom, #a69c92 5%, #634b30 100%);
+	background-color:#a69c92;
+	border-radius:3px;
+	border:1px solid #54381e;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-style:italic;
+	padding:8px 28px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #4d3534;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #634b30 5%, #a69c92 100%);
+	background-color:#634b30;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
