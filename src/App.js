@@ -2,31 +2,31 @@ import React, { useState, useEffect} from 'react'
 import Square from './components/Square'
 import './App.css'
 import PlayersTurn from './components/PlayersTurn'
+import footer from './components/footer'
 
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
   const [turn, setTurn] = useState(0)
   
   const checkTurn = (index) => {
-    //conditional statement to check if a player one
-    if(calculateWinner(squares) !== null){
-      //conditional state to display the right player that one 
-     const winner = calculateWinner(squares) === "X" ? "Player One(X) won" : "Player Two(O) won"
-      alert(winner)
-    }else if(calculateWinner(squares) === null &&  turn >8){
-      alert("Tie Game!")
-    }else if (squares[index] === null) {
-      // places an X if its player one and an O if its player 2
-      const current = turn  % 2 === 0 ? "X" : "O"
-      // Updating the data state
-      squares[index] = current;
-      //setting the current square that was clicked on to either an X or an O
-      setSquares[index] = current
-      // Adding 1 to count to switch turns 
-      setTurn(turn+1)
-    
-  }
-}
+    if (calculateWinner(squares) !== null) {
+      const winner = calculateWinner(squares) === "X" ? "Player One (X) won" : "Player Two (O) won";
+      setTimeout(() => {
+        alert(winner);
+      }, 100);
+    } else if (calculateWinner(squares) === null && turn >= 9) {
+      setTimeout(() => {
+        alert("Tie Game!");
+      }, 100);
+    } else if (squares[index] === null) {
+      const current = turn % 2 === 0 ? "X" : "O";
+      const updatedSquares = [...squares];
+      updatedSquares[index] = current;
+      setSquares(updatedSquares);
+      setTurn(turn + 1);
+    }
+  };
+
 useEffect(()=>{
 checkTurn()
 
@@ -90,7 +90,8 @@ const resetGame = () => {
       turn={turn}
       />
      </body>
-     
+     <footer/>
+
     </>
   )
 }
